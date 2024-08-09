@@ -1,4 +1,5 @@
-import { CommandBusInterface, CommandHandlerInterface, CommandInterface } from '@/shared'
+import { CommandHandlerInterface, CommandInterface } from '@/shared'
+import type { CommandBusInterface } from './CommandBusInterface'
 
 export class InMemoryCommandBus implements CommandBusInterface {
   private handlers: Map<string, CommandHandlerInterface<CommandInterface>> = new Map()
