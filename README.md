@@ -18,12 +18,16 @@ This repository is a Node.js project created to demonstrate homemade event sourc
 - [ ] Implement the ability to store events in an EventStore.
 - [ ] Implement the ability to replay events from an EventStore for a specific Aggregate.
 - [ ] Implement the ability to replay events from an EventStore for all Aggregates ?
-- [ ] Create the Command interface.
-- [ ] Create the CommandHandler interface.
-- [ ] Create the CommandBus interface.
-- [ ] Implement an in-memory CommandBus.
-- [ ] Implement the ability to dispatch a command to a CommandBus.
-- [ ] Implement the ability to handle a command in a CommandHandler.
+- [x] Create the Command interface.
+- [x] Create the CommandHandler interface.
+- [x] Create the CommandBus interface.
+- [x] Implement an in-memory CommandBus.
+- [x] Implement the ability to dispatch a command to a CommandBus.
+- [x] Implement the ability to handle a command in a CommandHandler.
+- [x] Create the QueryBus interface.
+- [x] Implement an in-memory QueryBus.
+- [x] Implement the ability to dispatch a query to a QueryBus.
+- [x] Implement the ability to handle a query in a QueryHandler.
 - [ ] Create the EventBus interface.
 - [ ] Implement an in-memory EventBus.
 - [ ] Implement the ability to publish events to an EventBus.
