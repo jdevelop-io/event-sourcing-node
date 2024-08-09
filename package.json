@@ -13,11 +13,11 @@
     "node": "^22.5.1",
     "bun": "^1.1.17"
   },
-  "main": "src/add.ts",
+  "main": "src/index.ts",
   "scripts": {
     "prepare": "husky",
     "prebuild": "rimraf build",
-    "build": "bun build src/add.ts --outdir ./build",
+    "build": "bun build src/index.ts --outdir ./build",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",

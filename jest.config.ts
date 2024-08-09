@@ -21,7 +21,7 @@ const config: Config = {
   collectCoverageFrom: ['**/*.ts', '!jest.config.ts'],
 
   // An array of regexp pattern strings used to skip coverage collection
-  coveragePathIgnorePatterns: ['/node_modules/', '/coverage/', '/dist/'],
+  coveragePathIgnorePatterns: ['/node_modules/', '/coverage/', '/dist/', '/src/index\\.ts'],
 
   // Indicates which provider should be used to instrument code for coverage
   coverageProvider: 'babel',
