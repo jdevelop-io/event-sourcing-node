@@ -1,0 +1,1 @@
+export { CategoryCreatedEvent } from './CategoryCreatedEvent'
