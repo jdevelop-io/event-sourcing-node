@@ -1,0 +1,1 @@
+export { InMemoryQueryBus } from './InMemoryQueryBus'

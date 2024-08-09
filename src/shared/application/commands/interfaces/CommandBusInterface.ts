@@ -1,5 +1,5 @@
-import { CommandHandlerInterface } from '@/shared/application/commands/interfaces/CommandHandlerInterface.ts'
-import { CommandInterface } from '@/shared/application/commands/interfaces/CommandInterface.ts'
+import { CommandHandlerInterface } from './CommandHandlerInterface'
+import { CommandInterface } from './CommandInterface'
 
 export interface CommandBusInterface {
   register(command: CommandInterface, handler: CommandHandlerInterface<CommandInterface>): void
