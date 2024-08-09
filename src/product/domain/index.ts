@@ -1,7 +1,0 @@
-export * from './services'
-export * from './errors'
-export * from './valueobjects'
-export * from './aggregates'
-export * from './repositories'
-export * from './factories'
-export * from './events'

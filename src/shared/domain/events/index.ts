@@ -1,3 +1,2 @@
-export { DomainEvent } from './DomainEvent.ts'
-export type { DomainEventInterface } from './DomainEventInterface.ts'
-export { AggregateChangedEvent } from './AggregateChangedEvent.ts'
+export type { DomainEventInterface } from './DomainEventInterface'
+export { AggregateChangedEvent } from './AggregateChangedEvent'

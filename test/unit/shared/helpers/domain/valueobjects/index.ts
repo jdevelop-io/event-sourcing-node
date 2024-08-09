@@ -1,0 +1,1 @@
+export { DummyAggregateId } from './DummyAggregateId'

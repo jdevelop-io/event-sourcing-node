@@ -1,26 +1,16 @@
-import { ClockServiceInterface, DomainEventInterface, NativeClockService } from '@/shared'
+import { AggregateId, Version } from '@/shared'
+import { DomainEventInterface } from './DomainEventInterface'
 
-export abstract class DomainEvent<TId> implements DomainEventInterface {
-  private _version?: number
-  private readonly _occurredAt: Date
+export abstract class DomainEvent<TId extends AggregateId<unknown>> implements DomainEventInterface {
+  protected _version?: Version
 
-  public get version(): number {
+  public get version(): Version {
     return this._version!
   }
 
-  public get occurredAt(): Date {
-    return this._occurredAt
-  }
+  public constructor(public readonly aggregateId: TId) {}
 
-  protected constructor(
-    public readonly aggregateId: TId,
-    occurredAt?: Date,
-    clockService: ClockServiceInterface = new NativeClockService()
-  ) {
-    this._occurredAt = occurredAt ?? clockService.now()
-  }
-
-  public withVersion(version: number): this {
+  public withVersion(version: Version): this {
     this._version = version
 
     return this

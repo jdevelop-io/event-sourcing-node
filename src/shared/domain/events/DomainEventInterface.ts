@@ -1,3 +1,6 @@
+import { Version } from '@/shared'
+
 export interface DomainEventInterface {
-  withVersion(version: number): this
+  get version(): Version
+  withVersion(version: Version): this
 }

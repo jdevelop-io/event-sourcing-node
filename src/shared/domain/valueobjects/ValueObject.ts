@@ -1,16 +1,14 @@
-export abstract class ValueObject<V> {
-  protected readonly value: V
-
-  protected constructor(value: V) {
-    const sanitizedValue = this.sanitize(value)
+export abstract class ValueObject<T> {
+  protected constructor(protected _value: T) {
+    const sanitizedValue = this.sanitize(_value)
     this.validate(sanitizedValue)
-    this.value = sanitizedValue
+    this._value = sanitizedValue
   }
 
-  protected abstract sanitize(value: V): V
-  protected abstract validate(value: V): void
+  protected abstract sanitize(value: T): T
+  protected abstract validate(value: T): void
 
-  public unwrap(): V {
-    return this.value
+  public unwrap(): T {
+    return this._value
   }
 }
