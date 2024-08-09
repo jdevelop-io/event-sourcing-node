@@ -1,0 +1,1 @@
+export { InMemoryCategoryRepository } from './InMemoryCategoryRepository'
