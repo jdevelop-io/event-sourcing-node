@@ -42,7 +42,7 @@ jobs:
       - name: Run format check
         run: bun run format:check
 
-  build:
+  tests:
     runs-on: ubuntu-latest
 
     steps:
