@@ -7,16 +7,27 @@
 
 This repository is a Node.js project created to demonstrate homemade event sourcing patterns for educational purposes. The project implements basic event sourcing concepts like event storage, replay, and eventual consistency without relying on external libraries. It's designed to help you understand the fundamentals of event sourcing in a practical, hands-on way.
 
-## Features
+## To Do
 
-- **TypeScript**: Use TypeScript for a better development experience and improved code quality.
-- **ESLint**: Lint your code with ESLint to maintain consistent coding standards.
-- **Prettier**: Format your code with Prettier to keep it clean and consistent.
-- **Jest**: Test your code with Jest to ensure its correctness and reliability.
-- **Husky**: Use Husky to run tasks on Git hooks and enforce code quality.
-- **Lint-Staged**: Run ESLint and Prettier on staged files to catch errors before committing.
-- **Commitlint**: Enforce conventional commit messages to keep your commit history clean and organized.
-- **GitHub Actions**: Use GitHub Actions for continuous integration and automated testing.
+- [x] Create an abstract Aggregate class.
+- [x] Create an abstract DomainEvent class.
+- [x] Implement the ability to record events in an Aggregate.
+- [ ] Implement the ability to replay events in an Aggregate.
+- [ ] Create the EventStore interface.
+- [ ] Implement an in-memory EventStore.
+- [ ] Implement the ability to store events in an EventStore.
+- [ ] Implement the ability to replay events from an EventStore for a specific Aggregate.
+- [ ] Implement the ability to replay events from an EventStore for all Aggregates ?
+- [ ] Create the Command interface.
+- [ ] Create the CommandHandler interface.
+- [ ] Create the CommandBus interface.
+- [ ] Implement an in-memory CommandBus.
+- [ ] Implement the ability to dispatch a command to a CommandBus.
+- [ ] Implement the ability to handle a command in a CommandHandler.
+- [ ] Create the EventBus interface.
+- [ ] Implement an in-memory EventBus.
+- [ ] Implement the ability to publish events to an EventBus.
+- [ ] Implement the ability to subscribe to events from an EventBus.
 
 ## Getting Started
 
