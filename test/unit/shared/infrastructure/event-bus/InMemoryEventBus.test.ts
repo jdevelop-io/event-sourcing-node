@@ -10,7 +10,7 @@ describe('InMemoryEventBus', () => {
 
   describe('when there is no event handler registered', () => {
     it('should not throw an error when trying to publish an event', async () => {
-      await expect(eventBus.publish([new DummyChangedEvent(DummyAggregateId.of('42'))])).resolves.not.toThrow()
+      await expect(eventBus.publish([new DummyChangedEvent(DummyAggregateId.of('42'), 'toz')])).resolves.not.toThrow()
     })
   })
 
@@ -23,7 +23,7 @@ describe('InMemoryEventBus', () => {
     })
 
     it('should call the handler when publishing an event', async () => {
-      const event = new DummyChangedEvent(DummyAggregateId.of('42'))
+      const event = new DummyChangedEvent(DummyAggregateId.of('42'), 'bar')
       await eventBus.publish([event])
       expect(dummyEventHandler.hasBeenCalled).toBe(true)
     })

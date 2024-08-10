@@ -24,22 +24,22 @@ describe('InMemoryEventStore', () => {
 
   describe('when there is events for a stream', () => {
     beforeEach(() => {
-      eventStore.store('stream', [new DummyChangedEvent(DummyAggregateId.of('1'))])
+      eventStore.store('stream', [new DummyChangedEvent(DummyAggregateId.of('1'), 'foo')])
     })
 
     it('should return the events for the stream', async () => {
       const events = await eventStore.getEventsForStream('stream')
 
-      expect(events).toEqual([new DummyChangedEvent(DummyAggregateId.of('1'))])
+      expect(events).toEqual([new DummyChangedEvent(DummyAggregateId.of('1'), 'foo')])
     })
 
     it('should append the events to the stream', async () => {
-      await eventStore.store('stream', [new DummyChangedEvent(DummyAggregateId.of('2'))])
+      await eventStore.store('stream', [new DummyChangedEvent(DummyAggregateId.of('2'), 'bar')])
 
       const newEvents = await eventStore.getEventsForStream('stream')
       expect(newEvents).toEqual([
-        new DummyChangedEvent(DummyAggregateId.of('1')),
-        new DummyChangedEvent(DummyAggregateId.of('2')),
+        new DummyChangedEvent(DummyAggregateId.of('1'), 'foo'),
+        new DummyChangedEvent(DummyAggregateId.of('2'), 'bar'),
       ])
     })
   })

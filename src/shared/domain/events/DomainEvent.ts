@@ -8,7 +8,10 @@ export abstract class DomainEvent<TId extends AggregateId<unknown>> implements D
     return this._version!
   }
 
-  public constructor(public readonly aggregateId: TId) {}
+  protected constructor(
+    public readonly aggregateId: TId,
+    public readonly payload: Record<string, unknown>
+  ) {}
 
   public withVersion(version: Version): this {
     this._version = version

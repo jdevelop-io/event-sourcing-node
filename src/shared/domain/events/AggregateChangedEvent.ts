@@ -4,4 +4,9 @@ import { DomainEventInterface } from './DomainEventInterface'
 
 export class AggregateChangedEvent<TId extends AggregateId<unknown>>
   extends DomainEvent<TId>
-  implements DomainEventInterface {}
+  implements DomainEventInterface
+{
+  public constructor(aggregateId: TId, payload: Record<string, unknown>) {
+    super(aggregateId, payload)
+  }
+}
