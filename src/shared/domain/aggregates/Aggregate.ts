@@ -10,6 +10,12 @@ export abstract class Aggregate<TId extends AggregateId<unknown>> {
     return this._version
   }
 
+  private withVersion(version: Version): this {
+    this._version = version
+
+    return this
+  }
+
   public pullUncommittedEvents(): DomainEventInterface[] {
     const events = [...this._uncommittedEvents]
 
@@ -42,5 +48,19 @@ export abstract class Aggregate<TId extends AggregateId<unknown>> {
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return (this as any)[handlerName]
+  }
+
+  public static reconstitute<T extends Aggregate<AggregateId<unknown>>>(
+    this: new () => T,
+    events: DomainEventInterface[]
+  ): T {
+    const aggregate = new this()
+
+    events.forEach((event) => {
+      aggregate.withVersion(event.version)
+      aggregate.apply(event)
+    })
+
+    return aggregate
   }
 }

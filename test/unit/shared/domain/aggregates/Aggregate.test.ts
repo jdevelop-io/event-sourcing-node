@@ -22,10 +22,10 @@ describe('Aggregate', () => {
     })
 
     it('should increment by 1 for each change', () => {
-      dummyAggregate.makeChange()
+      dummyAggregate.makeChange('foo')
       expect(dummyAggregate.version.unwrap()).toBe(1)
 
-      dummyAggregate.makeChange()
+      dummyAggregate.makeChange('bar')
       expect(dummyAggregate.version.unwrap()).toBe(2)
     })
   })
@@ -34,7 +34,7 @@ describe('Aggregate', () => {
     describe('if the event applier is not defined', () => {
       it('should not throw an error', () => {
         expect(() => {
-          dummyAggregate.makeChange()
+          dummyAggregate.makeChange('foo')
         }).not.toThrow()
       })
     })
@@ -46,7 +46,7 @@ describe('Aggregate', () => {
       })
 
       it('should have been applied after the event has been recorded', () => {
-        dummyAggregateWithApplier.makeChange()
+        dummyAggregateWithApplier.makeChange('bar')
         expect(dummyAggregateWithApplier.hasBeenApplied).toBe(true)
         expect(dummyAggregateWithApplier.event).toBeInstanceOf(DummyChangedEvent)
         expect(dummyAggregateWithApplier.event!.version).toBe(dummyAggregateWithApplier.version)
@@ -56,14 +56,32 @@ describe('Aggregate', () => {
 
   describe('events', () => {
     it('should be recorded', () => {
-      dummyAggregate.makeChange()
+      dummyAggregate.makeChange('foo')
       expect(dummyAggregate.pullUncommittedEvents()).toHaveLength(1)
     })
 
     it('should be cleared after being pulled', () => {
-      dummyAggregate.makeChange()
+      dummyAggregate.makeChange('bar')
       dummyAggregate.pullUncommittedEvents()
       expect(dummyAggregate.pullUncommittedEvents()).toHaveLength(0)
+    })
+  })
+
+  describe('reconstitution from history events', () => {
+    it('should reapply the events', () => {
+      const dummyAggregateId = DummyAggregateId.of('1')
+      const dummyChangedEvent1 = new DummyChangedEvent(dummyAggregateId, 'foo').withVersion(Version.of(1))
+      const dummyChangedEvent2 = new DummyChangedEvent(dummyAggregateId, 'bar').withVersion(Version.of(2))
+
+      const reconstitutedDummyAggregate = DummyAggregateWithApplier.reconstitute([
+        dummyChangedEvent1,
+        dummyChangedEvent2,
+      ])
+      expect(reconstitutedDummyAggregate).toBeInstanceOf(DummyAggregateWithApplier)
+      expect(reconstitutedDummyAggregate.version.unwrap()).toBe(2)
+      expect(reconstitutedDummyAggregate.id).toStrictEqual(dummyAggregateId)
+      expect((reconstitutedDummyAggregate as DummyAggregateWithApplier).value).toBe('bar')
+      expect(reconstitutedDummyAggregate.pullUncommittedEvents()).toHaveLength(0)
     })
   })
 })
