@@ -1,5 +1,4 @@
-import { QueryHandlerInterface } from './QueryHandlerInterface'
-import { QueryInterface } from './QueryInterface'
+import { QueryHandlerInterface, QueryInterface } from '@/shared'
 
 export interface QueryBusInterface {
   register(query: QueryInterface, handler: QueryHandlerInterface<QueryInterface>): void

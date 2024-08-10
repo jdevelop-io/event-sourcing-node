@@ -1,4 +1,5 @@
-import { QueryBusInterface, QueryHandlerInterface, QueryInterface } from '@/shared'
+import { QueryHandlerInterface, QueryInterface } from '@/shared'
+import type { QueryBusInterface } from './QueryBusInterface'
 
 export class InMemoryQueryBus implements QueryBusInterface {
   private _handlers: Map<string, QueryHandlerInterface<QueryInterface>> = new Map()

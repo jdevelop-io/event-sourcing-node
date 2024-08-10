@@ -1,11 +1,13 @@
-import { InMemoryEventStore } from '@/shared'
+import { InMemoryEventBus, InMemoryEventStore } from '@/shared'
 import { DummyAggregateId, DummyChangedEvent } from '@test:unit'
 
 describe('InMemoryEventStore', () => {
+  let eventBus: InMemoryEventBus
   let eventStore: InMemoryEventStore
 
   beforeEach(() => {
-    eventStore = new InMemoryEventStore()
+    eventBus = new InMemoryEventBus()
+    eventStore = new InMemoryEventStore(eventBus)
   })
 
   it('should be empty when created', async () => {

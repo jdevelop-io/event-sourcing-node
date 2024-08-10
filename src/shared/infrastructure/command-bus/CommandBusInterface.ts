@@ -1,5 +1,4 @@
-import { CommandHandlerInterface } from './CommandHandlerInterface'
-import { CommandInterface } from './CommandInterface'
+import { CommandHandlerInterface, CommandInterface } from '@/shared'
 
 export interface CommandBusInterface {
   register(command: CommandInterface, handler: CommandHandlerInterface<CommandInterface>): void
