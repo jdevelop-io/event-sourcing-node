@@ -1,3 +1,3 @@
-export type QueryInterface = {
+export interface QueryInterface {
   name: string
 }
