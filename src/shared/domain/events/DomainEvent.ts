@@ -2,6 +2,7 @@ import { AggregateId, Version } from '@/shared'
 import { DomainEventInterface } from './DomainEventInterface'
 
 export abstract class DomainEvent<TId extends AggregateId<unknown>> implements DomainEventInterface {
+  public abstract readonly name: string
   protected _version?: Version
 
   public get version(): Version {
