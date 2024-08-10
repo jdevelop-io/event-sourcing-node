@@ -4,7 +4,4 @@ import { DomainEventInterface } from './DomainEventInterface'
 
 export class AggregateChangedEvent<TId extends AggregateId<unknown>>
   extends DomainEvent<TId>
-  implements DomainEventInterface
-{
-  public readonly name = AggregateChangedEvent.name
-}
+  implements DomainEventInterface {}
