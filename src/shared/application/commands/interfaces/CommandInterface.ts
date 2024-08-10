@@ -1,3 +1,3 @@
-export type CommandInterface = {
+export interface CommandInterface {
   name: string
 }
