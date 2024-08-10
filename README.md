@@ -12,11 +12,11 @@ This repository is a Node.js project created to demonstrate homemade event sourc
 - [x] Create an abstract Aggregate class.
 - [x] Create an abstract DomainEvent class.
 - [x] Implement the ability to record events in an Aggregate.
-- [ ] Implement the ability to replay events in an Aggregate.
-- [ ] Create the EventStore interface.
-- [ ] Implement an in-memory EventStore.
-- [ ] Implement the ability to store events in an EventStore.
-- [ ] Implement the ability to replay events from an EventStore for a specific Aggregate.
+- [x] Implement the ability to replay events in an Aggregate.
+- [x] Create the EventStore interface.
+- [x] Implement an in-memory EventStore.
+- [x] Implement the ability to store events in an EventStore.
+- [x] Implement the ability to replay events from an EventStore for a specific Aggregate.
 - [ ] Implement the ability to replay events from an EventStore for all Aggregates ?
 - [x] Create the Command interface.
 - [x] Create the CommandHandler interface.
@@ -28,10 +28,10 @@ This repository is a Node.js project created to demonstrate homemade event sourc
 - [x] Implement an in-memory QueryBus.
 - [x] Implement the ability to dispatch a query to a QueryBus.
 - [x] Implement the ability to handle a query in a QueryHandler.
-- [ ] Create the EventBus interface.
-- [ ] Implement an in-memory EventBus.
-- [ ] Implement the ability to publish events to an EventBus.
-- [ ] Implement the ability to subscribe to events from an EventBus.
+- [x] Create the EventBus interface.
+- [x] Implement an in-memory EventBus.
+- [x] Implement the ability to publish events to an EventBus.
+- [x] Implement the ability to subscribe to events from an EventBus.
 
 ## Getting Started
 
