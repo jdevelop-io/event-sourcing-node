@@ -1,5 +1,5 @@
 import { DomainEventInterface } from '@/shared'
 
-export interface EventHandlerInterface<Event extends DomainEventInterface> {
-  handle(event: Event): Promise<void>
+export interface EventHandlerInterface<TEvent extends DomainEventInterface> {
+  handle(event: TEvent): Promise<void>
 }
