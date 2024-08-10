@@ -1,2 +1,2 @@
-export { DomainEventInterface } from './DomainEventInterface'
+export type { DomainEventInterface } from './DomainEventInterface'
 export { AggregateChangedEvent } from './AggregateChangedEvent'
