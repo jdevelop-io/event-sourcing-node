@@ -53,4 +53,17 @@ describe('Aggregate', () => {
       })
     })
   })
+
+  describe('events', () => {
+    it('should be recorded', () => {
+      dummyAggregate.makeChange()
+      expect(dummyAggregate.pullUncommittedEvents()).toHaveLength(1)
+    })
+
+    it('should be cleared after being pulled', () => {
+      dummyAggregate.makeChange()
+      dummyAggregate.pullUncommittedEvents()
+      expect(dummyAggregate.pullUncommittedEvents()).toHaveLength(0)
+    })
+  })
 })

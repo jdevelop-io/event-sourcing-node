@@ -10,6 +10,14 @@ export abstract class Aggregate<TId extends AggregateId<unknown>> {
     return this._version
   }
 
+  public pullUncommittedEvents(): DomainEventInterface[] {
+    const events = [...this._uncommittedEvents]
+
+    this._uncommittedEvents.length = 0
+
+    return events
+  }
+
   protected record(event: DomainEventInterface): void {
     this._version = this._version.increment()
 
